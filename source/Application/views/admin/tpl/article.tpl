@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>[{oxmultilang ident="GENERAL_ADMIN_TITLE"}]</title>
+    <link rel="stylesheet" href="[{$oViewConf->getResourceUrl()}]summernote/summernote.css">
 </head>
 
 <!-- frames -->
