@@ -1000,4 +1000,35 @@ class DiscountTest extends \OxidTestCase
         $this->assertTrue($oDiscount->isForBundleItem($oProduct));
         $this->assertFalse($oDiscount->isForBundleItem($oUnrelatedProduct));
     }
+
+    /**
+     * Test, that the method 'getNextSortValue' returns 1, if there is no row before.
+     */
+    public function testGetNextSortValueWithZero()
+    {
+        $actualMaximalSort = 0;
+
+        $discountMock = $this->getMock('OxidEsales\Eshop\Application\Model\Discount', array('getMaximalSort'));
+        $discountMock->expects($this->any())->method('getMaximalSort')->willReturn($actualMaximalSort);
+
+        $nextSortValue = $discountMock->getNextSortValue();
+
+        $this->assertSame($actualMaximalSort + 1, $nextSortValue);
+    }
+
+    /**
+     * Test, that the method 'getNextSortValue' returns one more than the actual maximum.
+     */
+    public function testGetNextSortValueWithNonZero()
+    {
+        $actualMaximalSort = 300;
+
+        $discountMock = $this->getMock('OxidEsales\Eshop\Application\Model\Discount', array('getMaximalSort'));
+        $discountMock->expects($this->any())->method('getMaximalSort')->willReturn($actualMaximalSort);
+
+        $nextSortValue = $discountMock->getNextSortValue();
+
+        $this->assertSame($actualMaximalSort + 1, $nextSortValue);
+    }
+
 }

@@ -420,6 +420,16 @@ class Discount extends \oxI18n
     }
 
     /**
+     * Get the next free sort value.
+     *
+     * @return int The next number after the actual maximal sort value.
+     */
+    public function getNextSortValue()
+    {
+        return $this->getMaximalSort() + 1;
+    }
+
+    /**
      * Get the maximal value of the column oxsort.
      *
      * @return int The maximal value of the oxsort column.
