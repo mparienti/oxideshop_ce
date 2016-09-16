@@ -420,6 +420,18 @@ class Discount extends \oxI18n
     }
 
     /**
+     * Get the maximal value of the column oxsort.
+     *
+     * @return int The maximal value of the oxsort column.
+     */
+    public function getMaximalSort()
+    {
+        $database = oxDb::getDb();
+
+        return (int) $database->getOne('SELECT MAX(OXSORT) FROM oxdiscount;');
+    }
+
+    /**
      * Returns article ids assigned to discount
      *
      * @return array
