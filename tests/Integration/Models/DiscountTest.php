@@ -21,6 +21,8 @@
  */
 namespace Integration\Models;
 
+use oxDb;
+
 /**
  * Testing the Discount model class.
  */
@@ -28,17 +30,45 @@ class DiscountTest extends \OxidTestCase
 {
 
     /**
+     * Test, that the method 'getMaximalSort' works as expected, if we have an empty table.
+     */
+    public function testGetMaximalSortWithEmptyTable()
+    {
+        $this->truncateDiscountTable();
+
+        $discount = oxNew('oxDiscount');
+
+        $this->assertSame(0, $discount->getMaximalSort());
+
+        $this->restoreDiscountTable();
+    }
+
+    /**
      * Test, that the method 'getMaximalSort' works as expected.
-     *
-     * @todo: write test for empty table oxdiscount!
      */
     public function testGetMaximalSort()
     {
-        $discount = oxNew('OxidEsales\Eshop\Application\Model\Discount');
+        $discount = oxNew('oxDiscount');
 
-        $maximal = $discount->getMaximalSort();
+        $this->assertSame(300, $discount->getMaximalSort());
+    }
 
-        $this->assertSame(300, $maximal);
+    /**
+     * Clear the table oxdiscount - remove all rows.
+     */
+    protected function truncateDiscountTable()
+    {
+        $database = oxDb::getDb();
+        $database->execute('TRUNCATE oxdiscount;');
+    }
+
+    /**
+     * Restore the table oxdiscount - fill it with the values, which where in it before.
+     */
+    protected function restoreDiscountTable()
+    {
+        $dbRestore = $this->_getDbRestore();
+        $dbRestore->restoreTable('oxdiscount');
     }
 
 }

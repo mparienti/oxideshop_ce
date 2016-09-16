@@ -1008,7 +1008,7 @@ class DiscountTest extends \OxidTestCase
     {
         $actualMaximalSort = 0;
 
-        $discountMock = $this->getMock('OxidEsales\Eshop\Application\Model\Discount', array('getMaximalSort'));
+        $discountMock = $this->getMock('oxDiscount', array('getMaximalSort'));
         $discountMock->expects($this->any())->method('getMaximalSort')->willReturn($actualMaximalSort);
 
         $nextSortValue = $discountMock->getNextSortValue();
@@ -1023,7 +1023,7 @@ class DiscountTest extends \OxidTestCase
     {
         $actualMaximalSort = 300;
 
-        $discountMock = $this->getMock('OxidEsales\Eshop\Application\Model\Discount', array('getMaximalSort'));
+        $discountMock = $this->getMock('oxDiscount', array('getMaximalSort'));
         $discountMock->expects($this->any())->method('getMaximalSort')->willReturn($actualMaximalSort);
 
         $nextSortValue = $discountMock->getNextSortValue();
