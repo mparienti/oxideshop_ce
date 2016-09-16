@@ -34,7 +34,7 @@ class DiscountTest extends \OxidTestCase
      */
     public function testGetMaximalSort()
     {
-        $discount = oxNew('oxDiscount');
+        $discount = oxNew('OxidEsales\Eshop\Application\Model\Discount');
 
         $maximal = $discount->getMaximalSort();
 
