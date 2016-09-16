@@ -59,6 +59,7 @@ class DiscountTest extends \OxidTestCase
     protected function truncateDiscountTable()
     {
         $database = oxDb::getDb();
+
         $database->execute('TRUNCATE oxdiscount;');
     }
 
@@ -67,8 +68,9 @@ class DiscountTest extends \OxidTestCase
      */
     protected function restoreDiscountTable()
     {
-        $dbRestore = $this->_getDbRestore();
-        $dbRestore->restoreTable('oxdiscount');
+        $databaseRestorer = $this->_getDbRestore();
+
+        $databaseRestorer->restoreTable('oxdiscount');
     }
 
 }
