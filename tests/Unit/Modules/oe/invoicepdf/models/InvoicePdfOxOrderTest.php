@@ -21,7 +21,7 @@
  */
 namespace Unit\Modules\Oe\Invoicepdf\Models;
 
-use OxidEsales\Eshop\Core\ShopIdCalculator;
+use OxidEsales\EshopCommunity\Core\ShopIdCalculator;
 use \stdClass;
 use \InvoicepdfArticleSummary;
 use \oxField;

@@ -27,6 +27,6 @@
  *
  */
 
-class oxPDF extends \OxidEsales\Eshop\Core\Pdf
+class oxPDF extends \OxidEsales\EshopCommunity\Core\Pdf
 {
 }

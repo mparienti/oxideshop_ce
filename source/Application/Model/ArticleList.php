@@ -20,15 +20,15 @@
  * @version   OXID eShop CE
  */
 
-namespace OxidEsales\Eshop\Application\Model;
+namespace OxidEsales\EshopCommunity\Application\Model;
 
-use OxidEsales\Eshop\Core\Database;
+use OxidEsales\EshopCommunity\Core\Database;
 use oxRegistry;
 use Exception;
 use oxDb;
-use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Database\Adapter\DatabaseInterface;
-use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use OxidEsales\EshopCommunity\Core\Registry;
+use OxidEsales\EshopCommunity\Core\Database\Adapter\DatabaseInterface;
+use OxidEsales\EshopCommunity\Core\Exception\DatabaseException;
 
 /**
  * Article list manager.

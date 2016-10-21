@@ -20,7 +20,7 @@
  * @version   OXID eShop CE
  */
 
-namespace OxidEsales\Eshop\Core;
+namespace OxidEsales\EshopCommunity\Core;
 
 use oxRegistry;
 
@@ -209,7 +209,7 @@ require_once $sTcPdfPath . "tcpdf.php";
 
 /**
  * TCPDF class wrapper, set/overrides oxid specific functionality
- * 
+ *
  * @deprecated since v5.3 (2016-08-06); class will be moved to the InvoicePDF module.
  */
 class PDF extends \TCPDF

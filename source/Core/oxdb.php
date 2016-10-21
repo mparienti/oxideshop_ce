@@ -25,6 +25,6 @@
  *
  * @mixin \OxidEsales\EshopEnterprise\Core\Database
  */
-class oxDb extends \OxidEsales\Eshop\Core\Database
+class oxDb extends \OxidEsales\EshopCommunity\Core\Database
 {
 }

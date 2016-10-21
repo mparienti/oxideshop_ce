@@ -29,6 +29,6 @@
  *
  * @mixin \OxidEsales\EshopEnterprise\Application\Controller\BaseController
  */
-class oxUBase extends \OxidEsales\Eshop\Application\Controller\BaseController
+class oxUBase extends \OxidEsales\EshopCommunity\Application\Controller\BaseController
 {
 }

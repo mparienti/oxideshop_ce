@@ -27,6 +27,6 @@
  *
  * @mixin \OxidEsales\EshopEnterprise\Core\I18n
  */
-class oxI18n extends \OxidEsales\Eshop\Core\I18n
+class oxI18n extends \OxidEsales\EshopCommunity\Core\I18n
 {
 }

@@ -31,6 +31,6 @@
  *
  * @mixin \OxidEsales\EshopEnterprise\Application\Controller\Admin\AdminList
  */
-class oxAdminList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminList
+class oxAdminList extends \OxidEsales\EshopCommunity\Application\Controller\Admin\AdminList
 {
 }

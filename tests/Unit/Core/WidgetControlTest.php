@@ -113,7 +113,7 @@ class WidgetControlTest extends \OxidTestCase
 
         $this->assertEquals(3, count($aActiveViews));
         $this->assertEquals("account", $aActiveViews[0]->getClassName());
-        $this->assertInstanceOf('OxidEsales\Eshop\Application\Controller\BaseController', $aActiveViews[1]);
+        $this->assertInstanceOf('OxidEsales\EshopCommunity\Application\Controller\BaseController', $aActiveViews[1]);
         $this->assertEquals("oxwCookieNote", $aActiveViews[2]->getClassName());
 
         $this->assertEquals("oxwCookieNote", $oControl->getConfig()->getActiveView()->getClassName());

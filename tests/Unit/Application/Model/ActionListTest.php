@@ -22,7 +22,7 @@
 namespace Unit\Application\Model;
 
 use \oxDb;
-use OxidEsales\Eshop\Core\Database;
+use OxidEsales\EshopCommunity\Core\Database;
 use \oxRegistry;
 use \oxTestModules;
 use \oxActionList;
@@ -242,7 +242,7 @@ class ActionListTest extends \OxidTestCase
     {
         $actionListMock = $this->getMock('oxActionList', array('fetchExistsActivePromotion'));
         $actionListMock->expects($this->any())->method('fetchExistsActivePromotion')->willReturn($response);
-        
+
         $this->assertEquals($expected, $actionListMock->areAnyActivePromotions());
     }
 
