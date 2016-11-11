@@ -315,27 +315,6 @@ class InputValidator extends \oxSuperCfg
     }
 
     /**
-     * Checks if all values are filled up
-     *
-     * @param oxUser $oUser        active user
-     * @param string $sFieldName   checking field name
-     * @param array  $aFieldValues field values
-     *
-     * @deprecated since v5.2 (2014-06-19); This logic was moved to oxRequiredFieldValidator and checkRequiredFields() method.
-     */
-    public function checkRequiredArrayFields($oUser, $sFieldName, $aFieldValues)
-    {
-        foreach ($aFieldValues as $sValue) {
-            if (!trim($sValue)) {
-                $oEx = oxNew('oxInputException');
-                $oEx->setMessage(oxRegistry::getLang()->translateString('ERROR_MESSAGE_INPUT_NOTALLFIELDS'));
-
-                $this->_addValidationError($sFieldName, $oEx);
-            }
-        }
-    }
-
-    /**
      * Checks if user defined countries (billing and delivery) are active
      *
      * @param oxUser $oUser       active user
