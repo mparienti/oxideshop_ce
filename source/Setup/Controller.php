@@ -468,7 +468,7 @@ class Controller extends Core
         }
 
         // check if email matches pattern
-        if (!oxNew('oxMailValidator')->isValidEmail($aAdminData['sLoginName'])) {
+        if (!$this->isValidEmail($aAdminData['sLoginName'])) {
             $oSetup->setNextStep($oSetup->getStep('STEP_DIRS_INFO'));
             $oView->setMessage($oLang->getText('ERROR_USER_NAME_DOES_NOT_MATCH_PATTERN'));
 
@@ -701,5 +701,17 @@ class Controller extends Core
     {
         $editionPathSelector = $this->getEditionPathProvider($edition);
         return $editionPathSelector->getDatabaseSqlDirectory();
+    }
+
+    /**
+     * Is the given login a valid email?
+     *
+     * @param string $login The login we check.
+     *
+     * @return bool Is the given login a valid email?
+     */
+    protected function isValidEmail($login)
+    {
+        return oxNew('oxMailValidator')->isValidEmail($login['sLoginName']);
     }
 }
