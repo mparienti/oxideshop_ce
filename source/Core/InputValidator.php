@@ -202,7 +202,7 @@ class InputValidator extends \oxSuperCfg
         }
 
         // invalid email address ?
-        if (!oxRegistry::getUtils()->isValidEmail($sEmail)) {
+        if (!oxNew('oxMailValidator')->isValidEmail($sEmail)) {
             $oEx = oxNew('oxInputException');
             $oEx->setMessage(oxRegistry::getLang()->translateString('ERROR_MESSAGE_INPUT_NOVALIDEMAIL'));
 

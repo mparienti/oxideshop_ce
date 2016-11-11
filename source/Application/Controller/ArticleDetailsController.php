@@ -903,7 +903,8 @@ class ArticleDetailsController extends \oxUBase
         $utils = oxRegistry::getUtils();
 
         $parameters = $this->getConfig()->getRequestParameter('pa');
-        if (!isset($parameters['email']) || !$utils->isValidEmail($parameters['email'])) {
+
+        if (!isset($parameters['email']) || !oxNew('oxMailValidator')->isValidEmail($parameters['email'])) {
             $this->_iPriceAlarmStatus = 0;
             return;
         }

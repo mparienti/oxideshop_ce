@@ -468,7 +468,7 @@ class Controller extends Core
         }
 
         // check if email matches pattern
-        if (!$oUtils->isValidEmail($aAdminData['sLoginName'])) {
+        if (!oxNew('oxMailValidator')->isValidEmail($aAdminData['sLoginName'])) {
             $oSetup->setNextStep($oSetup->getStep('STEP_DIRS_INFO'));
             $oView->setMessage($oLang->getText('ERROR_USER_NAME_DOES_NOT_MATCH_PATTERN'));
 

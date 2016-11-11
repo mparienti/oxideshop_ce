@@ -267,23 +267,6 @@ class Utils extends \oxSuperCfg
     }
 
     /**
-     * User email validation function. Returns true if email is OK otherwise - false;
-     * Syntax validation is performed only.
-     *
-     * @param string $sEmail user email
-     *
-     * @deprecated since v4.9.0/v5.2.0 (2014-06-17); Use MailValidator::isValidEmail().
-     *
-     * @return bool
-     */
-    public function isValidEmail($sEmail)
-    {
-        $oMailValidator = oxNew('oxMailValidator');
-
-        return $oMailValidator->isValidEmail($sEmail);
-    }
-
-    /**
      * Parses profile configuration, loads stored info in cookie
      *
      * @param array $aInterfaceProfiles ($myConfig->getConfigParam( 'aInterfaceProfiles' ))
