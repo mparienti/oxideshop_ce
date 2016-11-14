@@ -22,7 +22,6 @@
 
 namespace OxidEsales\EshopCommunity\Core;
 
-use oxBase;
 use OxidEsales\Eshop\Core\Edition\EditionSelector;
 use oxSystemComponentException;
 use oxUtilsObject;
@@ -164,6 +163,26 @@ class UtilsObject
     }
 
     /**
+     * Class instance getter.
+     *
+     * @param $className
+     *
+     * @return null | object
+     */
+    public static function getClassInstance($className)
+    {
+        $instance = null;
+
+        if (!self::isNamespacedClass($className)) {
+            $className = strtolower($className);
+        }
+        if (isset(self::$_aClassInstances[$className])) {
+            $instance = self::$_aClassInstances[$className];
+        }
+        return $instance;
+    }
+
+    /**
      * Resets previously set instances
      */
     public static function resetClassInstances()
@@ -237,14 +256,11 @@ class UtilsObject
     {
         $arguments = func_get_args();
         array_shift($arguments);
-        if (!self::isNamespacedClass($className)) {
-            $className = strtolower($className);
-        }
 
-        if (isset(self::$_aClassInstances[$className])) {
-            return self::$_aClassInstances[$className];
+        $object = self::getClassInstance($className);
+        if (!is_null($object)) {
+            return $object;
         }
-
         if (!defined('OXID_PHP_UNIT') && isset($this->_aClassNameCache[$className])) {
             $realClassName = $this->_aClassNameCache[$className];
         } else {
@@ -258,7 +274,6 @@ class UtilsObject
                 $exception->debugOut();
                 throw $exception;
             }
-
             $this->_aClassNameCache[$className] = $realClassName;
         }
 
@@ -332,6 +347,10 @@ class UtilsObject
      */
     public function getClassName($classAlias)
     {
+        if (!self::isNamespacedClass($classAlias)) {
+            $classAlias = strtolower($classAlias);
+        }
+
         $classNameProvider = $this->getClassNameProvider();
 
         $class = $classNameProvider->getClassName($classAlias);
