@@ -238,19 +238,12 @@ class UtilsObject
         $arguments = func_get_args();
         array_shift($arguments);
         $argumentsCount = count($arguments);
-        $shouldUseCache = $this->shouldCacheObject($className, $arguments);
         if (!self::isNamespacedClass($className)) {
             $className = strtolower($className);
         }
 
         if (isset(self::$_aClassInstances[$className])) {
             return self::$_aClassInstances[$className];
-        }
-        if (!defined('OXID_PHP_UNIT') && $shouldUseCache) {
-            $cacheKey = ($argumentsCount) ? $className . md5(serialize($arguments)) : $className;
-            if (isset(self::$_aInstanceCache[$cacheKey])) {
-                return clone self::$_aInstanceCache[$cacheKey];
-            }
         }
 
         if (!defined('OXID_PHP_UNIT') && isset($this->_aClassNameCache[$className])) {
@@ -271,9 +264,6 @@ class UtilsObject
         }
 
         $object = $this->_getObject($realClassName, $argumentsCount, $arguments);
-        if ($shouldUseCache && $object instanceof \OxidEsales\EshopCommunity\Core\Model\BaseModel) {
-            self::$_aInstanceCache[$cacheKey] = clone $object;
-        }
 
         return $object;
     }
