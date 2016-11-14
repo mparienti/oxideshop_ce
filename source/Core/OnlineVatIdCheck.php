@@ -100,32 +100,6 @@ class OnlineVatIdCheck extends \oxCompanyVatInChecker
     }
 
     /**
-     * Parses error and throws exception for it
-     *
-     * @param string $sErrorMsg error message
-     *
-     * @deprecated since v5.2 (2014-07-28); This logic was moved to oxCompanyVatInValidator
-     *
-     * @throws oxConnectionException
-     */
-    protected function _parseError($sErrorMsg)
-    {
-        if (!$sErrorMsg || $sErrorMsg == 'INVALID_INPUT') {
-            /** @var oxInputException $oEx */
-            $oEx = oxNew('oxInputException');
-            $oEx->setMessage('VAT_MESSAGE_' . ($sErrorMsg ? $sErrorMsg : 'ID_NOT_VALID'));
-            throw $oEx;
-        }
-
-        /** @var oxConnectionException $oEx */
-        $oEx = oxNew('oxConnectionException');
-        $oEx->setAdress($this->getWsdlUrl());
-        $oEx->setMessage('VAT_MESSAGE_' . $sErrorMsg);
-        $oEx->debugOut();
-        throw $oEx;
-    }
-
-    /**
      * Catches soap warning which is usually thrown due to service problems.
      * Return true and allows to continue process
      *

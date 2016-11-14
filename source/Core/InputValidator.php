@@ -606,19 +606,6 @@ class InputValidator extends \oxSuperCfg
     }
 
     /**
-     * Gets VAT in validator.
-     *
-     * @return oxOnlineVatIdCheck
-     *
-     * @deprecated since v5.2 (2014-07-28); This logic was moved to oxCompanyVatInValidator
-     *
-     */
-    protected function _getVatIdValidator()
-    {
-        return oxNew('oxOnlineVatIdCheck');
-    }
-
-    /**
      * VAT IN validator setter
      *
      * @param oxCompanyVatInValidator $oCompanyVatInValidator validator
