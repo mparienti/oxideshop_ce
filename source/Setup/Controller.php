@@ -702,16 +702,4 @@ class Controller extends Core
         $editionPathSelector = $this->getEditionPathProvider($edition);
         return $editionPathSelector->getDatabaseSqlDirectory();
     }
-
-    /**
-     * Is the given login a valid email?
-     *
-     * @param string $login The login we check.
-     *
-     * @return bool Is the given login a valid email?
-     */
-    protected function isValidEmail($login)
-    {
-        return oxNew('oxMailValidator')->isValidEmail($login['sLoginName']);
-    }
 }
