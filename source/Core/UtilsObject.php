@@ -237,7 +237,6 @@ class UtilsObject
     {
         $arguments = func_get_args();
         array_shift($arguments);
-        $argumentsCount = count($arguments);
         if (!self::isNamespacedClass($className)) {
             $className = strtolower($className);
         }
@@ -263,8 +262,7 @@ class UtilsObject
             $this->_aClassNameCache[$className] = $realClassName;
         }
 
-        $object = $this->_getObject($realClassName, $argumentsCount, $arguments);
-
+        $object = new $realClassName(...$arguments);
         return $object;
     }
 
