@@ -113,7 +113,7 @@ class SystemRequirements
      *
      * @var string
      */
-    protected $_sReqInfoUrl = "http://oxidforge.org/en/installation.html";
+    protected $_sReqInfoUrl = "http://oxidforge.org/system_requirements.html";
 
     /**
      * Module or system configuration mapping with installation info url anchor
@@ -183,7 +183,7 @@ class SystemRequirements
      * @param string $sMethod Methods name
      * @param array  $aArgs   Argument array
      *
-     * @throws oxSystemComponentException Throws an exception if the called method does not exist or is not accessible
+     * @throws \oxSystemComponentException Throws an exception if the called method does not exist or is not accessible
      * in current class
      *
      * @return string
@@ -207,7 +207,7 @@ class SystemRequirements
     /**
      * Returns config instance
      *
-     * @return oxConfig
+     * @return \oxConfig
      */
     public function getConfig()
     {
